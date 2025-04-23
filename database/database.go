@@ -16,9 +16,9 @@ func InitDB(cfg config.Config) error {
 	}
 	poolConfig.MaxConns = 20
 
-	DB, err = pgxpool.NewWithConfig(context. Background(), poolConfig)
+	DB, err = pgxpool.NewWithConfig(context.Background(), poolConfig)
 	if err != nil {
-		return fmt.Errorf("error connocting to database: %w", err)
+		return fmt.Errorf("error connecting to database: %w", err)
 	}
 
 	return nil

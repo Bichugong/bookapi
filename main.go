@@ -24,14 +24,14 @@ func main() {
 
 	// Незащищенные роуты
 	r.POST("/register", handlers.RegisterUser)
-	r.POST("/login", handlers.LoginUser)
+	r.POST("/login", handlers.LoginUser(cfg))
 
 	// Защищенные роуты
 	authGroup := r.Group("/")
 	authGroup.Use(middleware.AuthMiddleware(cfg))
 	{
-		authGroup.GET("/authors", handlers.GetAuthors)
-		authGroup.GET("/books", handlers.GetBooksWithAuthors)
+    authGroup.GET("/authors", handlers.GetAuthors)
+    authGroup.GET("/books", handlers.GetBooksWithAuthors)
 	}
 
 	// Запуск сервера

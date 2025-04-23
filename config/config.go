@@ -1,14 +1,14 @@
 package config
 
-import(
+import (
 	"log"
 	"os"
 	"github.com/joho/godotenv"
 )
 
 type Config struct {
-	JWTSecter string
-	DBURL string
+	JWTSecret string
+	DBURL     string
 }
 
 func LoadConfig() Config {
